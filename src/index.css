@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-page: #f7f8fa;
+  --bg-card: #ffffff;
+  --bg-card-subtle: #f3f4f6;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --text-primary: #0a0e14;
+  --text-secondary: #526071;
+  --text-muted: #8c9ba8;
+  --accent-color: #bdf800;
+  --accent-text: #000000;
+  --halo-glow: rgba(189, 248, 0, 0.85);
+}
+
+.theme-dark {
+  --bg-page: #0b0c0e;
+  --bg-card: #14171b;
+  --bg-card-subtle: #1c2026;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-color: #bdf800;
+  --accent-text: #000000;
+  --halo-glow: rgba(189, 248, 0, 0.8);
+}
+
+.theme-navy {
+  --bg-page: #080f24;
+  --bg-card: #0e1938;
+  --bg-card-subtle: #14234b;
+  --border-subtle: rgba(147, 197, 253, 0.16);
+  --text-primary: #f0f6ff;
+  --text-secondary: #93c5fd;
+  --text-muted: #60a5fa;
+  --accent-color: #38bdf8;
+  --accent-text: #070d1e;
+  --halo-glow: rgba(56, 189, 248, 0.85);
+}
+
+.theme-navy .dark\:bg-\[\#13161c\],
+.theme-navy .dark\:bg-\[\#14171b\],
+.theme-navy .dark\:bg-\[\#14171e\] {
+  background-color: #0e1938 !important;
+}
+
+.theme-navy,
+.theme-navy body,
+.theme-navy .dark\:bg-\[\#0b0c0e\],
+.theme-navy .dark\:bg-\[\#0c0e12\],
+.theme-navy .dark\:bg-\[\#0e1014\] {
+  background-color: #080f24 !important;
+}
+
+.theme-navy .dark\:border-neutral-800,
+.theme-navy .dark\:border-neutral-700 {
+  border-color: rgba(147, 197, 253, 0.18) !important;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+}
+
+/* Custom themed helper classes */
+.app-bg {
+  background-color: var(--bg-page);
+}
+
+.app-card {
+  background-color: var(--bg-card);
+  border-color: var(--border-subtle);
+}
+
+.app-card-subtle {
+  background-color: var(--bg-card-subtle);
+  border-color: var(--border-subtle);
+}
+
+.app-border {
+  border-color: var(--border-subtle);
+}
+
+.app-text-primary {
+  color: var(--text-primary);
+}
+
+.app-text-secondary {
+  color: var(--text-secondary);
+}
+
+.app-text-muted {
+  color: var(--text-muted);
+}
+
+.app-accent-btn {
+  background-color: var(--text-primary);
+  color: var(--bg-page);
+}
+
+.app-accent-btn:hover {
+  opacity: 0.92;
+}
+
+/* Custom radial gradient for the hero glow */
+.hero-glow {
+  background: radial-gradient(
+    circle at center,
+    var(--halo-glow) 0%,
+    rgba(189, 248, 0, 0.5) 40%,
+    transparent 75%
+  );
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
